@@ -15,48 +15,42 @@ require("catppuccin").setup({
     no_italic = false, -- Force no italic
     no_bold = false, -- Force no bold
     no_underline = false, -- Force no underline
-		--     styles = { -- Handles the styles of general hi groups (see `:h highlight-args`):
-		--         comments = { "italic" }, -- Change the style of comments
-		--         conditionals = { },
-		--         loops = {},
-		--         functions = {},
-		--         keywords = {},
-		--         strings = {},
-		--         variables = {},
-		--         numbers = {},
-		--         booleans = {},
-		--         properties = {},
-		--         types = {},
-		--         operators = {},
-		-- identifiers = {}
-		--     },
     color_overrides = {
         mocha = {
             base = "#151615",
             mantle = "#1f2120",
             overlay2 = "#ededed",
-			overlay0 = "#85c46c",
+			-- overlay0 = "#85c46c",
 			green = "#5eeeaf",
+            kwd = "#6c95eb",
+            ident = "#edfcfc",
+            fld = "#bae0e3",
         }
     },
     custom_highlights = function(colors)
         return {
-            Comment = { fg = colors.overlay0, style = { "italic" } },
+            Comment = { fg = "#85c46c", style = { "italic" } },
             Function = { fg = colors.green },
             String = { fg = colors.yellow },
             Character = { fg = colors.yellow },
-            Keyword = { fg = "#6c95eb" },
-            Label = { fg = "#6c95eb" },
-            Exception = { fg = "#6c95eb" },
+            Keyword = { fg = colors.kwd },
+            Label = { fg = colors.kwd },
+            Exception = { fg = colors.kwd },
             Type = { fg = "#85f3f3" },
             StorageClass = { fg = "#85f3f3" },
             Structure = { fg = "#85f3f3" },
-            Identifier = { fg = "#daf5f5" },
+            Identifier = { fg = colors.ident },
+            Conditional = { fg = colors.kwd, style = {} },
+            Repeat = { fg = colors.kwd },
+            -- Parameter = { fg = colors.kwd },
             -- Statement = { fg = "#daf5f5" },
             -- Character = { fg = "#daf5f5" },
-
-            -- Variables = { fg = "#111111" },
-            -- Variable = { fg = "#d7d7d7" },
+            -- Variable = { fg = colors.kwd },
+            ["@variable.builtin"] = { fg = colors.kwd },
+            ["@type.builtin"] = { fg = colors.kwd },
+            -- ["@parameter"] = { fg = colors.kwd },
+            ["@field"] = { fg = colors.fld },
+            ["@property"] = { fg = colors.fld },
         }
     end,
     integrations = {

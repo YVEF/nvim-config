@@ -1,7 +1,4 @@
 local wk = require("which-key")
--- wk.setup{
-
--- }
 
 -- leader prefix
 wk.register({
@@ -25,22 +22,25 @@ wk.register({
 		}
 	},
 	f = {
-		name = "file",
+		name = "Telescope",
 		f = { "<cmd>Telescope find_files<cr>", "Find file" },
-		r = { "<cmd>Telescope oldfiles<cr>", "Recent files", noremap=false }
+		r = { "<cmd>Telescope oldfiles<cr>", "Recent files", noremap=true },
+		R = { "<cmd>Telescope registers<cr>", "Registers" },
+		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
+		g = { "<cmd>Telescope live_grep<cr>", "Telescope grep" },
 	},
 	x = {
-		name = "trouble",
+		name = "Trouble",
 		x = { "<cmd>TroubleToggle<cr>", "Default toggle" },
 		d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document toggle" },
 		w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace toggle" },
 		q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
-		l = { "<cmd>TroubleToggle loclist<cr>", "Lolist" },
+		l = { "<cmd>TroubleToggle loclist<cr>", "Loclist" },
 		r = { "<cmd>TroubleToggle lsp_references<cr>", "Lsp references" },
 		c = { "<cmd>TroubleClose<cr>", "Trouble Close" },
 	},
 	t = {
-		name = "treesitter",
+		name = "Treesitter",
 		g = {
 			name = "generator",
 			d = { "<cmd>TSCppDefineClassFunc<cr>", "Generate method defintion" },
@@ -54,8 +54,19 @@ wk.register({
 		r = { "<cmd>CMakeRun<cr>", "Run" },
 		b = { "<cmd>CMakeBuild<cr>", "Build" },
 		d = { "<cmd>CMakeDebug<cr>", "Debug" },
-		c = { "<cmd>CMakeClean<cr>", "Clean" },
+		C = { "<cmd>CMakeClean<cr>", "Clean" },
+		c = { "<cmd>CMakeClose<cr>", "Close" },
+		o = { "<cmd>CMakeOpen<cr>", "Open" },
 		i = { "<cmd>CMakeInstall<cr>", "Install" },
 	}
 }, { prefix = "<leader>" })
 
+
+-- prefix-free config
+wk.register({
+	-- name = "General",
+	["<C-n>"] = { "<cmd>NvimTreeToggle<cr>", "NvimTree Toggle", noremap = true },
+	["<C-S-n>"] = { "<cmd>NvimTreeFindFile<cr>", "NvimTree focus on file", noremap = true },
+	["<C-A-n>"] = { "<cmd>NvimTreeFocus<cr>", "NvimTree focus", noremap = true },
+        ["<C-->"] = { "<cmd>Oil<cr>", "Oil explorer", noremap = true },
+})
