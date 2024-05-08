@@ -1,6 +1,5 @@
 local nvimtree = require("nvim-tree")
 nvimtree.setup({
-	-- open_on_setup = true,
   	sort_by = "case_sensitive",
   	view = {
     	width = 43,

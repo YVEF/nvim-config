@@ -55,7 +55,7 @@ wk.register({
 		b = { "<cmd>CMakeBuild<cr>", "Build" },
 		d = { "<cmd>CMakeDebug<cr>", "Debug" },
 		C = { "<cmd>CMakeClean<cr>", "Clean" },
-		c = { "<cmd>CMakeClose<cr>", "Close" },
+		c = { "<cmd>CMakeCloseExecutor<cr>", "Close Executor" },
 		o = { "<cmd>CMakeOpen<cr>", "Open" },
 		i = { "<cmd>CMakeInstall<cr>", "Install" },
 	}

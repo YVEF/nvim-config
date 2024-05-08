@@ -17,14 +17,16 @@ require("catppuccin").setup({
     no_underline = false, -- Force no underline
     color_overrides = {
         mocha = {
-            base = "#151615",
+            base = "#131413",
             mantle = "#1f2120",
             overlay2 = "#ededed",
 			-- overlay0 = "#85c46c",
 			green = "#5eeeaf",
             kwd = "#6c95eb",
-            ident = "#edfcfc",
+            -- ident = "#e9f6f6",
+            ident = "#f1f8f8",
             fld = "#bae0e3",
+            -- fld = "#f0f5f5",
         }
     },
     custom_highlights = function(colors)
@@ -32,7 +34,8 @@ require("catppuccin").setup({
             Comment = { fg = "#85c46c", style = { "italic" } },
             Function = { fg = colors.green },
             String = { fg = colors.yellow },
-            Character = { fg = colors.yellow },
+            -- Character = { fg = colors.yellow },
+            Character = { fg = "#f0f5f5" },
             Keyword = { fg = colors.kwd },
             Label = { fg = colors.kwd },
             Exception = { fg = colors.kwd },
@@ -47,10 +50,17 @@ require("catppuccin").setup({
             -- Character = { fg = "#daf5f5" },
             -- Variable = { fg = colors.kwd },
             ["@variable.builtin"] = { fg = colors.kwd },
+            ["@variable"] = { fg = "#d9e2e2" },
+            ["@function.builtin"] = { fg = colors.green },
+            ["@number"] = { fg = colors.ident },
             ["@type.builtin"] = { fg = colors.kwd },
+            ["@type.definition"] = { fg = colors.kwd },
             -- ["@parameter"] = { fg = colors.kwd },
             ["@field"] = { fg = colors.fld },
             ["@property"] = { fg = colors.fld },
+            ["@type"] = { fg = "#85f3f3" },
+            -- ["@type.builtin"] = { fg = "#85f3f3" },
+            ["@module"] = { fg = colors.ident },
         }
     end,
     integrations = {

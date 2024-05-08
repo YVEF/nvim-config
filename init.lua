@@ -1,4 +1,3 @@
--- Ensure packer is installed
 local install_path = '/home/iaroslav/.config/nvim/pack/packer/start/packer.nvim'
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
     vim.cmd('!git clone https://github.com/wbthomason/packer.nvim '..install_path)
@@ -13,30 +12,31 @@ require("packer").startup(function()
     use "nvim-lualine/lualine.nvim"
     use "neovim/nvim-lspconfig"
     use {
-        'nvim-treesitter/nvim-treesitter',
+        'nvim-treesitter/nvim-treesitter', tag="v0.9.2",
         run = ':TSUpdate'
     }
-    use 'nvim-treesitter/playground' 
+    use 'nvim-treesitter/playground'
     use "lukas-reineke/indent-blankline.nvim"
     use { "catppuccin/nvim", as = "catppuccin" }
     use "tpope/vim-fugitive"
     use "numToStr/Comment.nvim"
     use "williamboman/mason.nvim"
+    use "nvim-lua/plenary.nvim"
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.3',
-        requires = { {'nvim-lua/plenary.nvim'} }
+        "nvim-telescope/telescope.nvim",
+        requires = "nvim-lua/plenary.nvim"
     }
     use "ThePrimeagen/harpoon"
     use 'mbbill/undotree'
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-nvim-lsp'
-    use "hrsh7th/cmp-buffer"  
+    use "hrsh7th/cmp-buffer"
     use "hrsh7th/cmp-path"
     use "hrsh7th/cmp-cmdline"
     use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons'}
     use {
         "folke/todo-comments.nvim",
-        requires = { {'nvim-lua/plenary.nvim'} }
+        requires = "nvim-lua/plenary.nvim"
     }
     use "Pocco81/auto-save.nvim"
     use "dcampos/nvim-snippy"
@@ -46,20 +46,21 @@ require("packer").startup(function()
     use { "folke/flash.nvim", tag = "v1.18.2" }
     use "mfussenegger/nvim-dap"
     use "rcarriga/nvim-dap-ui"
-    use { 
+    use {
         "mfussenegger/nvim-dap-python",
         requires = { { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui" } }
     }
     use "jay-babu/mason-nvim-dap.nvim"
     use "vim-airline/vim-airline"
     use "vim-airline/vim-airline-themes"
-    use {
-        "Civitasv/cmake-tools.nvim",
-        commit = "5d8d0f7"
-    }
+    use "Civitasv/cmake-tools.nvim"
+    --use {
+    --    "Civitasv/cmake-tools.nvim"
+--         commit = "5d8d0f7"
+    --}
     use {
         "Badhi/nvim-treesitter-cpp-tools",
-        requires = { "nvim-treesitter/nvim-treesitter" },
+        requires = "nvim-treesitter/nvim-treesitter",
     }
     use "windwp/nvim-autopairs"
     use "folke/which-key.nvim"
@@ -72,18 +73,17 @@ require("packer").startup(function()
     use "rafamadriz/friendly-snippets"
     use "saadparwaiz1/cmp_luasnip"
     use "petertriho/nvim-scrollbar"
+    use "nvim-neotest/nvim-nio"
     use {
         "nvim-neotest/neotest",
         requires = {
             "nvim-lua/plenary.nvim",
-            "antoinemadec/FixCursorHold.nvim",
-            "nvim-neotest/neotest-vim-test",
-            "vim-test/vim-test"
+            "antoinemadec/FixCursorHold.nvim"
         }
     }
-    use {"nvim-telescope/telescope-ui-select.nvim" }
+    use "nvim-telescope/telescope-ui-select.nvim"
     use "mg979/vim-visual-multi" -- multicursore plugin
-    use "stevearc/oil.nvim"
+    --    use "gennaro-tedesco/nvim-possession"
 end)
 
 vim.o.number = true       -- Show line numbers
@@ -145,7 +145,6 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
 
-
 vim.api.nvim_set_keymap('n', '<C-x>', ':lua CtrlXPressed()<CR>', { noremap = true, silent = true })
 function CtrlXPressed()
     vim.api.nvim_set_keymap('n', '<C-c>', ':qa<CR>', { noremap = true, silent = true })
@@ -188,10 +187,8 @@ require "nv-scrollbar"
 require "nv-neotest"
 require "nv-events"
 require "nv-visual-multi"
-require "nv-oil"
 require "nv-comment"
 require "nv-dap"
-
 require "nv-which-key"
 
 -- vim.o.hlsearch = true     -- Highlight search results
