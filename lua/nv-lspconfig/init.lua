@@ -45,7 +45,7 @@ nvim_lsp.clangd.setup{
     	"--background-index",
     	"--clang-tidy",
 		"--all-scopes-completion",
-    	"--completion-style=bundled",
+    	"--completion-style=detailed",
     	"--cross-file-rename",
     	"--header-insertion-decorators",
     	"--header-insertion=iwyu",
@@ -71,7 +71,7 @@ nvim_lsp.cmake.setup{
     cmd = { "cmake-language-server" },
     filetypes = { "cmake" },
 	init_options = {
-		buildDirectory = "cmake-build-Debug" -- fixme
+		buildDirectory = "cmake-build-debug" -- fixme
 	},
     settings = {}
 }

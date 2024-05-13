@@ -18,7 +18,7 @@ require("packer").startup(function()
     use 'nvim-treesitter/playground'
     use "lukas-reineke/indent-blankline.nvim"
     use { "catppuccin/nvim", as = "catppuccin" }
-    use "tpope/vim-fugitive"
+    -- use "tpope/vim-fugitive"
     use "numToStr/Comment.nvim"
     use "williamboman/mason.nvim"
     use "nvim-lua/plenary.nvim"
@@ -54,10 +54,10 @@ require("packer").startup(function()
     use "vim-airline/vim-airline"
     use "vim-airline/vim-airline-themes"
     use "Civitasv/cmake-tools.nvim"
-    --use {
-    --    "Civitasv/cmake-tools.nvim"
---         commit = "5d8d0f7"
-    --}
+    -- use {
+    --    "Civitasv/cmake-tools.nvim",
+    --     commit = "8506c42"
+    -- }
     use {
         "Badhi/nvim-treesitter-cpp-tools",
         requires = "nvim-treesitter/nvim-treesitter",
@@ -83,6 +83,18 @@ require("packer").startup(function()
     }
     use "nvim-telescope/telescope-ui-select.nvim"
     use "mg979/vim-visual-multi" -- multicursore plugin
+    use {
+        "NeogitOrg/neogit",
+        requires = {
+            "nvim-lua/plenary.nvim",         -- required
+            "sindrets/diffview.nvim",        -- optional - Diff integration
+
+            -- Only one of these is needed, not both.
+            "nvim-telescope/telescope.nvim", -- optional
+            "ibhagwan/fzf-lua"
+        }
+    }
+    use "f-person/git-blame.nvim"
     --    use "gennaro-tedesco/nvim-possession"
 end)
 
@@ -171,7 +183,7 @@ require "nv-lspconfig"
 require "nv-mason"
 require "nv-harpoon"
 require "nv-undotree"
-require "nv-fugitive"
+-- require "nv-fugitive"
 require "nv-ibl"
 require "nv-theme"
 require "nv-bufferline"
@@ -189,7 +201,10 @@ require "nv-events"
 require "nv-visual-multi"
 require "nv-comment"
 require "nv-dap"
+require "nv-neogit"
+require "nv-gitblame"
 require "nv-which-key"
+
 
 -- vim.o.hlsearch = true     -- Highlight search results
 -- vim.opt.hlsearch = true     -- Highlight search results
