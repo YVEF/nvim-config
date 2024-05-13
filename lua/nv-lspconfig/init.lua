@@ -68,12 +68,13 @@ nvim_lsp.pyright.setup{
 nvim_lsp.ruff_lsp.setup{}
 
 nvim_lsp.cmake.setup{
-    cmd = { "cmake-language-server" },
+    capabilities = lsp_capabilities,
+    command = { "cmake-language-server" },
     filetypes = { "cmake" },
-	init_options = {
-		buildDirectory = "cmake-build-debug" -- fixme
-	},
-    settings = {}
+    rootPattern = { "cmake-build-debug/" },
+    initializationOptions = {
+        buildDirectory = "cmake-build-debug"
+    }
 }
 
 nvim_lsp.lua_ls.setup{

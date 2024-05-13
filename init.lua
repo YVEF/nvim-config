@@ -53,11 +53,10 @@ require("packer").startup(function()
     use "jay-babu/mason-nvim-dap.nvim"
     use "vim-airline/vim-airline"
     use "vim-airline/vim-airline-themes"
-    use "Civitasv/cmake-tools.nvim"
-    -- use {
-    --    "Civitasv/cmake-tools.nvim",
-    --     commit = "8506c42"
-    -- }
+    use {
+       "Civitasv/cmake-tools.nvim",
+        commit = "8aee57d"
+    }
     use {
         "Badhi/nvim-treesitter-cpp-tools",
         requires = "nvim-treesitter/nvim-treesitter",
