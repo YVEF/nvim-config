@@ -1,3 +1,4 @@
+
 local nvimtree = require("nvim-tree")
 nvimtree.setup({
   	sort_by = "case_sensitive",

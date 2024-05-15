@@ -46,6 +46,7 @@ require("packer").startup(function()
     use { "folke/flash.nvim", tag = "v1.18.2" }
     use "mfussenegger/nvim-dap"
     use "rcarriga/nvim-dap-ui"
+    use "theHamsta/nvim-dap-virtual-text"
     use {
         "mfussenegger/nvim-dap-python",
         requires = { { "mfussenegger/nvim-dap", "rcarriga/nvim-dap-ui" } }
@@ -94,6 +95,9 @@ require("packer").startup(function()
         }
     }
     use "f-person/git-blame.nvim"
+    use "nvimdev/lspsaga.nvim"
+    use "rmagatti/auto-session"
+    use "torch/paths"
     --    use "gennaro-tedesco/nvim-possession"
 end)
 
@@ -202,8 +206,16 @@ require "nv-comment"
 require "nv-dap"
 require "nv-neogit"
 require "nv-gitblame"
+require "nv-lspsaga"
+require "nv-auto-session"
 require "nv-which-key"
 
 
--- vim.o.hlsearch = true     -- Highlight search results
--- vim.opt.hlsearch = true     -- Highlight search results
+-- The command chain at the of the startup
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        vim.defer_fn(function()
+            vim.cmd("NvimTreeOpen")
+        end, 500)  -- 500 ms delay
+    end,
+})

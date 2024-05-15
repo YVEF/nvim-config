@@ -58,7 +58,14 @@ wk.register({
 		c = { "<cmd>CMakeCloseExecutor<cr>", "Close Executor" },
 		o = { "<cmd>CMakeOpen<cr>", "Open" },
 		i = { "<cmd>CMakeInstall<cr>", "Install" },
-	}
+	},
+    d = {
+        name = "Dap",
+        b = { "<cmd>DapToggleBreakpoint<cr>", "Toggle Breakpoint" },
+        c = { "<cmd>DapContinue<cr>", "Continue" },
+        t = { "<cmd>DapTerminate<cr>", "Terminate" },
+        r = { "<cmd>DapRestartFrame<cr>", "Restart Frame" }
+    }
 }, { prefix = "<leader>" })
 
 

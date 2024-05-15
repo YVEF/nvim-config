@@ -1,8 +1,7 @@
-
-
 local dap = require("dap")
 local dapui = require("dapui")
-dapui.setup()
+dapui.setup{}
+require("nvim-dap-virtual-text").setup{}
 
 dap.listeners.after.event_initialized["dapui_config"] = function()
 	dapui.open()
@@ -15,17 +14,6 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 end
 
 
-
-
--- require("mason-nvim-dap").setup{
---     ensure_installed = {"codelldb"},
---     handlers = {
---         function(config)
---             require("mason-nvim-dap").default_setup(config)
---         end,
---     }
--- }
-
 dap.adapters.codelldb = {
     type = "server",
     port = "${port}",
@@ -35,21 +23,45 @@ dap.adapters.codelldb = {
     }
 }
 
+dap.adapters.gdb = {
+    type = "executable",
+    command = "gdb",
+    args = { "-i", "dap" }
+}
+
 dap.configurations.cpp = {
     {
-        name = "Launch c++",
+        name = "Gdb Debug Attach",
+        type = "gdb",
+        request = "attach",
+        pid = require('dap.utils').pick_process,
+        args = {}
+    },
+    {
+        name = "Gdb Debug Executable",
+        type = "gdb",
+        request = "launch",
+        stopOnEntry = false,
+        cwd = "${workspaceFolder}",
+        -- program = "${file}",
+        program = function()
+          return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+        end,
+        args = {}
+    },
+    {
+        name = "LLDB Debug",
         type = "codelldb",
         request = "launch",
         stopOnEntry = false,
         cwd = "${workspaceFolder}",
-        -- program = "${workspaceFolder}/cmake-build-Debug/test",
+        -- program = "${file}",
         program = function()
           return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
         end,
         args = {}
     },
 }
-
 
 
 
