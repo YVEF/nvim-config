@@ -212,10 +212,24 @@ require "nv-which-key"
 
 
 -- The command chain at the of the startup
-vim.api.nvim_create_autocmd("VimEnter", {
-    callback = function()
-        vim.defer_fn(function()
-            vim.cmd("NvimTreeOpen")
-        end, 500)  -- 500 ms delay
-    end,
-})
+-- vim.api.nvim_create_autocmd("VimEnter", {
+--     callback = function()
+--         vim.defer_fn(function()
+--             vim.cmd("NvimTreeOpen")
+--         end, 500)  -- 500 ms delay
+--     end,
+-- })
+
+
+-- NEOVIDE SETTINGS
+vim.o.guifont = "JetBrainsMonoNL Nerd Font:h10"
+vim.opt.linespace = 0
+vim.g.neovide_scale_factor = 1.0
+vim.g.neovide_remember_window_size = true
+vim.g.neovide_cursor_animation_length = 0
+vim.g.neovide_scroll_animation_length = 0.2
+vim.g.neovide_hide_mouse_when_typing = true
+vim.g.neovide_fullscreen = true
+
+
+

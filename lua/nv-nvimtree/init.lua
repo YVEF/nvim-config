@@ -3,9 +3,9 @@ local nvimtree = require("nvim-tree")
 nvimtree.setup({
   	sort_by = "case_sensitive",
   	view = {
-    	width = 43,
+    	width = 38,
 		side = "right",
-		preserve_window_proportions = true
+		preserve_window_proportions = false
   	},
   	renderer = {
     	group_empty = true,
