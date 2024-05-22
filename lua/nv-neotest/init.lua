@@ -1,5 +1,7 @@
 require("neotest").setup({
   adapters = {
+      -- require("neotest-boost-test")
+      require("neotest-gtest").setup({})
     -- require("neotest-python")({
     --   dap = { justMyCode = false },
     -- }),

@@ -17,15 +17,17 @@ require("catppuccin").setup({
     no_underline = false, -- Force no underline
     color_overrides = {
         mocha = {
-            base = "#131413",
+            -- base = "#131413",
+            base = "#151415",
             mantle = "#1f2120",
             overlay2 = "#ededed",
 			green = "#5eeeaf",
             kwd = "#6c95eb",
             ident = "#f1f8f8",
-            fld = "#bae0e3",
+            fld = "#eeeeee",
             constants = "#f6dac9",
-            usertype = "#85f3f3"
+            usertype = "#85f3f3",
+            ident2 = "#cfe0e0"
         }
     },
     custom_highlights = function(colors)
@@ -55,7 +57,8 @@ require("catppuccin").setup({
             ["@type.definition"] = { fg = colors.usertype },
             ["@field"] = { fg = colors.fld },
             ["@property"] = { fg = colors.fld },
-            ["@module"] = { fg = colors.ident }
+            ["@module"] = { fg = colors.ident },
+            ["@parameter"] = { fg = colors.ident2 }
         }
     end,
     integrations = {

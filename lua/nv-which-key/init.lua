@@ -58,6 +58,11 @@ wk.register({
 		c = { "<cmd>CMakeCloseExecutor<cr>", "Close Executor" },
 		o = { "<cmd>CMakeOpen<cr>", "Open" },
 		i = { "<cmd>CMakeInstall<cr>", "Install" },
+		t = { "<cmd>CMakeRunTest<cr>", "Run Test" },
+		s = {
+            name = "Select",
+            t = { "<cmd>CMakeSelectBuildType<cr>", "Build Type" }
+        }
 	},
     d = {
         name = "Dap",

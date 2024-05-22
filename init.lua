@@ -98,7 +98,10 @@ require("packer").startup(function()
     use "nvimdev/lspsaga.nvim"
     use "rmagatti/auto-session"
     use "torch/paths"
-    --    use "gennaro-tedesco/nvim-possession"
+    use "maggflor/neotest-boost-test"
+    use "alfaix/neotest-gtest"
+
+    --    use "gennaro-tedesco/nvim-possession" -- complex session handling
 end)
 
 vim.o.number = true       -- Show line numbers
@@ -222,14 +225,17 @@ require "nv-which-key"
 
 
 -- NEOVIDE SETTINGS
-vim.o.guifont = "JetBrainsMonoNL Nerd Font:h10"
+vim.o.guifont = "JetBrainsMonoNL Nerd Font:h10:w-0.3:#h-none:#e-subpixelantialias"
+-- vim.o.guifont = "InputMono Nerd Font:h11"
+-- vim.o.guifont = "JetBrainsMonoNL Nerd Font:h10:w-0.3:#e-subpixelantialias"
 vim.opt.linespace = 0
-vim.g.neovide_scale_factor = 1.0
+-- vim.g.neovide_scale_factor = 1.0
 vim.g.neovide_remember_window_size = true
 vim.g.neovide_cursor_animation_length = 0
 vim.g.neovide_scroll_animation_length = 0.2
 vim.g.neovide_hide_mouse_when_typing = true
-vim.g.neovide_fullscreen = true
-
+-- vim.g.neovide_fullscreen = true
+-- vim.g.neovide_text_gamma = 0.999
+-- vim.g.neovide_text_contrast = 0.1
 
 
