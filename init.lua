@@ -100,7 +100,7 @@ require("packer").startup(function()
     use "torch/paths"
     use "maggflor/neotest-boost-test"
     use "alfaix/neotest-gtest"
-
+    use "onsails/lspkind-nvim"
     --    use "gennaro-tedesco/nvim-possession" -- complex session handling
 end)
 

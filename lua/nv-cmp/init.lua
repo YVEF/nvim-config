@@ -1,6 +1,7 @@
 
 local cmp = require("cmp")
 local luasnip = require("luasnip")
+local lspkind = require("lspkind")
 
 cmp.setup({
 	sources = {
@@ -10,6 +11,19 @@ cmp.setup({
 		{name = 'luasnip'},
 		-- {name = 'vsnip'},
   	},
+    formatting = {
+        format = lspkind.cmp_format({
+            with_text = true,
+            maxwidth = 50,
+            before = function (entry, vim_item)
+              return vim_item
+            end
+        })
+
+    },
+    experimental = {
+        ghost_text = true,
+    },
 	mapping = {
 		['<C-n>'] = cmp.mapping.select_next_item({ behavior = cmp.SelectBehavior.Insert }),
         ['<C-p>'] = cmp.mapping.select_prev_item({ behavior = cmp.SelectBehavior.Insert }),
@@ -30,6 +44,11 @@ cmp.setup({
   	}
 })
 
+cmp.setup.cmdline('/', {
+  sources = {
+    { name = 'buffer' }
+  }
+})
 
 
 
