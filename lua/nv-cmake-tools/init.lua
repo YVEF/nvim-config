@@ -2,7 +2,7 @@ require("cmake-tools").setup {
   cmake_command = "cmake", -- this is used to specify cmake command path
   ctest_command = "ctest", -- this is used to specify ctest command path
   cmake_regenerate_on_save = false, -- auto generate when save CMakeLists.txt
-  cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1" }, -- this will be passed when invoke `CMakeGenerate`
+  cmake_generate_options = { "-DCMAKE_EXPORT_COMPILE_COMMANDS=1", "-G \"Unix Makefiles\"" }, -- this will be passed when invoke `CMakeGenerate`
   cmake_build_options = { "-j10" }, -- this will be passed when invoke `CMakeBuild`
   -- support macro expansion:
   --       ${kit}
@@ -18,7 +18,8 @@ require("cmake-tools").setup {
   },
   cmake_dap_configuration = { -- debug settings for cmake
     name = "cpp",
-    type = "codelldb",
+    type = "gdb",
+    -- type = "codelldb",
     -- type = "cppdbg",
     request = "launch",
     stopOnEntry = false,
@@ -35,7 +36,7 @@ require("cmake-tools").setup {
         position = "belowright", -- "vertical", "horizontal", "leftabove", "aboveleft", "rightbelow", "belowright", "topleft", "botright", use `:h vertical` for example to see help on them
         size = 30,
         encoding = "utf-8", -- if encoding is not "utf-8", it will be converted to "utf-8" using `vim.fn.iconv`
-        auto_close_when_success = false,
+        auto_close_when_success = true,
       },
       toggleterm = {
         direction = "float", -- 'vertical' | 'horizontal' | 'tab' | 'float'

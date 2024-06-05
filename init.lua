@@ -43,7 +43,8 @@ require("packer").startup(function()
     use "dcampos/cmp-snippy"
     use "hrsh7th/cmp-vsnip"
     use "hrsh7th/vim-vsnip"
-    use { "folke/flash.nvim", tag = "v1.18.2" }
+    -- use { "folke/flash.nvim", tag = "v1.18.2" }
+    use "folke/flash.nvim"
     use "mfussenegger/nvim-dap"
     use "rcarriga/nvim-dap-ui"
     use "theHamsta/nvim-dap-virtual-text"
@@ -83,6 +84,7 @@ require("packer").startup(function()
     }
     use "nvim-telescope/telescope-ui-select.nvim"
     use "mg979/vim-visual-multi" -- multicursore plugin
+    use "sindrets/diffview.nvim"
     use {
         "NeogitOrg/neogit",
         requires = {
@@ -148,10 +150,14 @@ vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.listchars = "tab:→ ,eol:¬,space:·,trail:•,extends:⟩,precedes:⟨"
 vim.g.loaded_gtags_cscope = 1
+-- vim.o.ttyfast = true
+-- vim.o.lazyredraw = true
 
 -- Map leader to space
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
+
+
 
 vim.cmd([[
 filetype plugin on
@@ -211,6 +217,8 @@ require "nv-neogit"
 require "nv-gitblame"
 require "nv-lspsaga"
 require "nv-auto-session"
+require "nv-trouble"
+require "nv-diffview"
 require "nv-which-key"
 
 

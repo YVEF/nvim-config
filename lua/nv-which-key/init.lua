@@ -23,22 +23,24 @@ wk.register({
 	},
 	f = {
 		name = "Telescope",
-		f = { "<cmd>Telescope find_files<cr>", "Find file" },
+		f = { "<cmd>Telescope find_files<cr>", "Find file", noremap = true },
 		r = { "<cmd>Telescope oldfiles<cr>", "Recent files", noremap=true },
-		R = { "<cmd>Telescope registers<cr>", "Registers" },
-		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch" },
-		g = { "<cmd>Telescope live_grep<cr>", "Telescope grep" },
+		R = { "<cmd>Telescope registers<cr>", "Registers", noremap = true },
+		b = { "<cmd>Telescope git_branches<cr>", "Checkout branch", noremap = true },
+		g = { "<cmd>Telescope live_grep<cr>", "Live grep", noremap = true },
+		s = { "<cmd>Telescope grep_string<cr>", "Grep string", noremap = true },
+		d = { "<cmd>Telescope diagnostics<cr>", "Grep string", noremap = true },
 	},
-	x = {
-		name = "Trouble",
-		x = { "<cmd>TroubleToggle<cr>", "Default toggle" },
-		d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document toggle" },
-		w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace toggle" },
-		q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
-		l = { "<cmd>TroubleToggle loclist<cr>", "Loclist" },
-		r = { "<cmd>TroubleToggle lsp_references<cr>", "Lsp references" },
-		c = { "<cmd>TroubleClose<cr>", "Trouble Close" },
-	},
+	-- x = {
+	-- 	name = "Trouble",
+	-- 	x = { "<cmd>TroubleToggle<cr>", "Default toggle" },
+	-- 	d = { "<cmd>TroubleToggle document_diagnostics<cr>", "Document toggle" },
+	-- 	w = { "<cmd>TroubleToggle workspace_diagnostics<cr>", "Workspace toggle" },
+	-- 	q = { "<cmd>TroubleToggle quickfix<cr>", "Quickfix" },
+	-- 	l = { "<cmd>TroubleToggle loclist<cr>", "Loclist" },
+	-- 	r = { "<cmd>TroubleToggle lsp_references<cr>", "Lsp references" },
+	-- 	c = { "<cmd>TroubleClose<cr>", "Trouble Close" },
+	-- },
 	t = {
 		name = "Treesitter",
 		g = {
@@ -70,6 +72,18 @@ wk.register({
         c = { "<cmd>DapContinue<cr>", "Continue" },
         t = { "<cmd>DapTerminate<cr>", "Terminate" },
         r = { "<cmd>DapRestartFrame<cr>", "Restart Frame" }
+    },
+    x = {
+        name = "LspSaga",
+        w = { "<cmd>Lspsaga show_workspace_diagnostics<cr>", "Workspace diagnostics", noremap = true},
+        b = { "<cmd>Lspsaga show_buf_diagnostics<cr>", "Buf diagnostics", noremap = true},
+    },
+    s = {
+        name = "Flash",
+        j = { function() require("flash").jump() end, "Flash Jump" },
+        t = { function() require("flash").treesitter() end, "Flash Treesitter" },
+        R = { function() require("flash").treesitter_search() end, "Flash Treesitter Search" },
+        r = { function() require("flash").remote() end, "Flash Remote" }
     }
 }, { prefix = "<leader>" })
 
@@ -80,5 +94,7 @@ wk.register({
 	["<C-n>"] = { "<cmd>NvimTreeToggle<cr>", "NvimTree Toggle", noremap = true },
 	["<C-S-n>"] = { "<cmd>NvimTreeFindFile<cr>", "NvimTree focus on file", noremap = true },
 	["<C-A-n>"] = { "<cmd>NvimTreeFocus<cr>", "NvimTree focus", noremap = true },
-        ["<C-->"] = { "<cmd>Oil<cr>", "Oil explorer", noremap = true },
+    ["<C-->"] = { "<cmd>Oil<cr>", "Oil explorer", noremap = true },
+    ["<F10>"] = { "<cmd>DapStepOver<cr>" },
+    ["<F11>"] = { "<cmd>DapStepInto<cr>" },
 })
