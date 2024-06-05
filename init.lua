@@ -103,6 +103,12 @@ require("packer").startup(function()
     use "maggflor/neotest-boost-test"
     use "alfaix/neotest-gtest"
     use "onsails/lspkind-nvim"
+    use { 
+            "LintaoAmons/bookmarks.nvim" ,
+            requires = {
+                "stevearc/dressing.nvim"
+            }
+        }
     --    use "gennaro-tedesco/nvim-possession" -- complex session handling
 end)
 
